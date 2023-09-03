@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+	
+body {
+ margin: 0;
+ padding: 0px;
+ font-family: Arial, sans-serif;
+}
+
+/* ----- Section link design ----- */	
+#section-link-travel {
+  display: flex;
+  align-items: center;
+  justify-content: center;	
+  padding: 8px 10px;
+  background-color: #85151b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 10px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#section-link-travel:hover {
+  background-color: white;
+  color: #85151b;
+}
+
+#section-link-fashion {
+  display: flex;
+  align-items: center;
+  justify-content: center;	
+  padding: 8px 10px;
+  background-color: #85151b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 10px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#section-link-fashion:hover {
+  background-color: white;
+  color: #85151b;
+}	
+
+#section-resume-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;	
+  padding: 8px 10px;
+  background-color: #85151b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 10px;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#section-resume-download:hover {
+  background-color: white;
+  color: #85151b;
+}	
+	
+/* ----- Container ----- */	
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.header img {
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-container {
+  position: relative;
+  margin-top: -50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid white;
+  background-image: url('_image/avatar.jpg');
+  background-size: cover;
+  margin-left: 20px;
+}
+
+.profile-info {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 60px;
+}
+
+.profile-profession {
+  font-size: 18px;
+  margin-top: 1px;
+}
+
+.profile-tagline {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.profile-links {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.profile-link {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-size: cover;
+  margin-right: 10px;
+  transition: opacity 0.3s;
+}
+
+.profile-link.link1 {
+  background-image: url('_image/linkedin.png');
+}
+
+.profile-link.link2 {
+  background-image: url('_image/instagram.png');
+}
+
+.profile-link.link3 {
+  background-image: url('_image/book.png');
+}
+
+.profile-link.link4 {
+  background-image: url('_image/contact.png');
+}	
+	
+.profile-link:hover {
+  opacity: 0.7;
+}
+	
+.content {
+  padding: 20px;
+  text-align: left;
+}
+
+.content p {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 35px;
+}
+
+/* ----- Parallax layout ----- */	
+.parallax-content {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+}
+
+.parallax {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.parallax1 {
+  background-image: url('_image/fashion.jpg');
+}
+
+.parallax2 {
+  background-image: url('_image/interior.jpg');
+}
+
+.parallax3 {
+  background-image: url('_image/technology.jpg');
+}
+	
+.parallax4 {
+  background-image: url('_image/socials.jpg');
+}
+
+.parallax5 {
+  background-image: url('_image/reading.jpg');
+}
+	
+.parallax6 {
+  background-image: url('_image/travel.jpg');
+}	
+
+/* ----- Overlay popup ----- */	
+.overlay {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  max-height: 80%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.overlay-content-container {
+  padding: 40px;
+  max-height: 100%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  color: white;
+}
+	
+.overlay2 {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  max-height: 80%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.overlay2-content-container {
+  padding: 40px;
+  max-height: 100%;
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.centered-content iframe {
+  width: 625px;
+  height: 725px;
+}	
+	
+.close-button2 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+/* ----- Embedded videos within overlay ----- */	
+.video-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.video-column {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.video-polaroid {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 1px 1px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  text-align: center;
+  height: 230px;
+}
+
+.video-title {
+  text-align: center;
+  margin: 6px 0;
+  font-weight: bold;
+  font-size: 12px;
+  color: #333;
+}
+
+/* ----- Resume design ----- */
+.resume {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.section-header {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.job-title {
+  font-weight: bold;
+ }
+
+ .job-dates {
+   font-weight: normal;
+}
+
+.job-description {
+  margin-left: 20px;
+ }
+
+ .accomplishments {
+   margin-left: 20px;
+}
+
+.education {
+  margin-top: 40px;
+}
+
+.education-header {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.education-details {
+  margin-left: 20px;
+}	
+	
+/* ----- Footer/Footer links ----- */	
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.footer-links a:hover {
+  color: #85151b;
+  text-decoration: underline;
+}
+	
+/* ----- Media query for smaller screens ----- */
+@media (max-width: 768px) {
+.container {
+  padding: 0 10px;
+}
+
+.header {
+  height: auto;
+}	  
+	  
+.profile-container {
+  margin-top: -50px;
+  text-align: center;
+  padding-left: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: -40px;
+}
+
+.profile-info {
+  margin-left: 0;
+  margin-top: 10px;
+}
+
+.profile-name {
+  font-size: 20px;
+}
+
+.profile-profession {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.profile-tagline {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.profile-link {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+	  
+.profile-links {
+  justify-content: center;
+}
+
+.overlay {
+  width: 400px;
+  max-height: 70%;
+}
+
+.overlay2 {
+  width: 400px;
+  max-height: 70%;
+}	
+	
+.video-row {
+  flex-direction: column;
+}
+
+.video-column {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.video-polaroid {
+  height: auto;
+  margin: 10px 0;
+}
+.video-polaroid iframe {
+  width: 100%;
+  height: auto;
+}	
+}		
+	
+</style>
+</head>
+<body>
+	
+<div class="container">
+	<div class="header"><img src="_image/banner.jpg" alt="Header Image"></div>
+    
+	<div class="profile-container">
+    	<div class="profile-photo"></div>
+      	<div class="profile-info">
+        		<div class="profile-name">Andrés Cabán Jr.</div>
+        		<div class="profile-profession">CREATIVE PROFESSIONAL</div>
+      			<div class="profile-tagline">As a kid, I had a book full of “My Inventions.” As an adult, my inventions come to life.</div>
+        	<div class="profile-links">
+          		<a href="https://www.linkedin.com/in/acabanjr/" target="_blank" class="profile-link link1"></a>
+          		<a href="https://www.instagram.com/acabanjr" target="_blank" class="profile-link link2"></a>
+          		<a href="http://gardenofbeliefs.com/" target="_blank" class="profile-link link3"></a>
+		  		<a href="#" class="profile-link link4" id="open-contact-overlay"></a>
+					<div class="overlay2" id="contact-overlay">
+					  <div class="overlay2-content-container">
+						  <div class="centered-content">
+							<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfbfOFyLk-n0re85Zp8LYcG1xYpn5MkyNGpIBdOx7Ov43naSw/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">Loading…</iframe>
+						  </div>
+					  </div>
+						<a href="#" class="close-button2" id="close-contact-overlay2">Close</a>
+					</div>			
+        	</div>
+      	</div>
+    </div>
+    
+<div class="content">
+	
+			<p>As a kid, I had a book full of “My Inventions.” It was full of detailed mock-ups of anything from clothing designs, to video game ideas, to blueprints for skyscrapers, all separated into categories. I’ve always been creative and even more so, organized. Those adjectives describe me best, and I apply them to even the smallest of things.</p>
+		
+		<div class="parallax parallax1">
+          <div class="parallax-content">FASHION DESIGN</div>
+      	</div>
+
+			<p>With over 15 years of experience in the fashion industry, my journey began with the decision to embrace design over technical roles, despite initial concerns about compensation. This choice has enriched my creative spirit and allowed me to channel my passion into various avenues.</p>
+
+			<p>Throughout my career, I've contributed to diverse projects, crafting clothing and accessories for boys, men, and young men. Beyond fashion design, I've left my mark on office spaces, refining design processes, and harnessing skills in graphic, print, and fabric design, as well as technical aspects.</p>
+		
+			<p><a href="#" id="section-link-fashion">View My Resume</a></p>
+	
+			<div class="overlay" id="section-overlay2">
+  			  <div class="overlay-content-container">    		    
+				  <div class="resume">					  
+       				  <div class="section-header">EXPERIENCE</div>
+					  
+       				  <div class="job-title">TAA Apparel</div>
+					  <div class="job-dates">AUG 2006 - PRESENT</div>
+					  <div class="job-description">           			  
+					  <ul>
+               		  <li>Manage and design the boys clothing line from concept and research through development and production</li>
+                      <li>Provide design direction and product development for private labels</li>
+                      <li>Correspond daily with overseas offices regarding fabric, wash, artwork, trim, and development samples; following up and replying to questions</li>
+					  <li>Collaborate with merchandising team to refine collections, maintain brand identity and implement buyer requirements</li>
+					  <li>Creating Illustrator flats and tech packs referencing clear details and instructions to be followed by overseas offices</li>
+					  <li>Creating line sheets, color CADs and presentation packages using Photoshop, to assist in sales meetings</li>
+					  <li>Review and revise strike offs, lab dips, handlooms and fit samples</li>
+					  <li>Research fabric and color trends</li>
+					  <li>Developing and managing project proposals</li>
+					  <li>Develop graphics</li>
+					  <li>Design logos, garment labels and hangtags</li> 
+					  <li>Maintaining brand integrity</li>
+                      </ul>
+        			  </div>
+						  
+					  <div class="accomplishments">
+            		  <div>Accomplishments:</div>
+					  <ul>
+                      <li>I developed the boy’s line into a successful and independent line with its own identity in wovens, knits, and bottoms, unique from that of the men’s.</li>
+                      <li>Incorporating new print techniques and design elements, I greatly improved the quality of graphics.</li>
+					  <li>By paying attention to smaller details and updating trim packages, I gave the line a greater sense of presence and recognition</li>
+					  <li>I introduced new styles, helping to expand the line to new buyers</li>
+					  <li>I streamlined development and production by reinventing the company’s tech pack and unifying it between the different lines</li>  
+					  <li>By reorganizing the style library, I made locating information of individual styles simpler for all departments</li>
+                      </ul>
+        			  </div>
+						  
+    			      <div class="job-title">R. Scott French/Rieys Industries Inc.</div>
+					  <div class="job-dates">APRIL 2005 - JUNE 2006</div>
+        			  <div class="job-description">
+            		  <ul>
+                	  <li>Assisted in creating technical Illustrator flats to be used for sales and tech packs</li>
+                	  <li>Maintained tech pack files ensuring that all approvals and rejections were documented</li>
+					  <li>Detailed Illustrator flats to be used in construction</li>
+					  <li>Sourced fabrics</li>
+					  <li>Developed graphics and designs for use on collections</li>
+					  <li>Built and Maintained Company’s Website</li>
+                	  </ul>
+        			  </div>
+					  
+        			  <div class="section-header">EDUCATION</div>
+        			  <div class="education-details">
+					  <ul>
+            		  <li>A.A.S. Fashion Design and Merchandising, Katharine Gibbs School</li>
+            		  <li>Computer programming courses, New York City College of Technology</li>
+					  </ul>
+					  <p><a href="_file/resume_acabanjr.pdf" id="section-resume-download" download target="_blank">Download PDF</a></p>  
+        			  </div>    				  
+				  </div>
+			  </div>
+  				<a href="#" class="close-button" id="section-close-button">Close</a>
+			</div>	
+	
+      	<div class="parallax parallax2">
+          <div class="parallax-content">INTERIORS</div>
+      	</div>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Tincidunt vitae semper quis lectus nulla at volutpat.</p>
+
+			<p>Sagittis eu volutpat odio facilisis. Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Nunc vel risus commodo viverra maecenas accumsan. Sagittis purus sit amet volutpat consequat mauris nunc congue. Ut sem viverra aliquet eget sit amet. Eu tincidunt tortor aliquam nulla facilisi cras.</p>
+
+      	<div class="parallax parallax3">
+          <div class="parallax-content">TECHNOLOGY</div>
+      	</div>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Tincidunt vitae semper quis lectus nulla at volutpat.</p>
+
+			<p>Sagittis eu volutpat odio facilisis. Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Nunc vel risus commodo viverra maecenas accumsan. Sagittis purus sit amet volutpat consequat mauris nunc congue. Ut sem viverra aliquet eget sit amet. Eu tincidunt tortor aliquam nulla facilisi cras.</p>	
+	
+      	<div class="parallax parallax4">
+          <div class="parallax-content">SOCIALS</div>
+      	</div>	
+		
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Tincidunt vitae semper quis lectus nulla at volutpat.</p>
+
+			<p>Sagittis eu volutpat odio facilisis. Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Nunc vel risus commodo viverra maecenas accumsan. Sagittis purus sit amet volutpat consequat mauris nunc congue. Ut sem viverra aliquet eget sit amet. Eu tincidunt tortor aliquam nulla facilisi cras.</p>		
+
+      	<div class="parallax parallax5">
+          <div class="parallax-content">CHILDREN'S BOOK</div>
+      	</div>	
+		
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Tincidunt vitae semper quis lectus nulla at volutpat.</p>
+
+			<p>Sagittis eu volutpat odio facilisis. Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Nunc vel risus commodo viverra maecenas accumsan. Sagittis purus sit amet volutpat consequat mauris nunc congue. Ut sem viverra aliquet eget sit amet. Eu tincidunt tortor aliquam nulla facilisi cras.</p>		
+
+      	<div class="parallax parallax6">
+          <div class="parallax-content">TRAVEL</div>
+      	</div>	
+		
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Tincidunt vitae semper quis lectus nulla at volutpat.</p>
+
+			<p>Sagittis eu volutpat odio facilisis. Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Nunc vel risus commodo viverra maecenas accumsan. Sagittis purus sit amet volutpat consequat mauris nunc congue. Ut sem viverra aliquet eget sit amet. Eu tincidunt tortor aliquam nulla facilisi cras.</p>	
+
+			<p><a href="#" id="section-link-travel">View Some of the Videos I've Created</a></p>
+	
+			<div class="overlay" id="overlay">
+			  <div class="overlay-content-container">
+				  
+				<div class="video-row">
+				  <div class="video-column">
+				    <div class="video-polaroid">
+					  <iframe width="320" height="180" src="https://www.youtube.com/embed/KD6ymxp-5ys?si=rm_dFYwM4IfsRPnz" frameborder="0" allowfullscreen></iframe>
+					  <p class="video-title">Milan, Italy 2023</p>
+				    </div>
+				  </div>
+				  <div class="video-column">
+				    <div class="video-polaroid">
+					  <iframe width="320" height="180" src="https://www.youtube.com/embed/T1DcIrLYlD0?si=-z7wQKN3ldKW0Mgy" frameborder="0" allowfullscreen></iframe>
+					  <p class="video-title">Fortuna, Costa Rica 2022</p>
+				    </div>
+				  </div>
+				  <div class="video-column">
+				    <div class="video-polaroid">
+					  <iframe width="320" height="180" src="https://www.youtube.com/embed/7KrxmXV_zgA?si=6p4dBRcZXIwFcLp-" frameborder="0" allowfullscreen></iframe>
+					  <p class="video-title">London, United Kingdom 2022</p>
+				    </div>
+				  </div>
+				  <div class="video-column">
+				    <div class="video-polaroid">
+					  <iframe width="320" height="180" src="https://www.youtube.com/embed/cDZ4cfBAf3A?si=5iaUVh0PNG2Upw4I" frameborder="0" allowfullscreen></iframe>
+					  <p class="video-title">Barcelona, Spain 2019</p>
+				    </div>
+				  </div>
+				  <div class="video-column">
+				    <div class="video-polaroid">
+					  <iframe width="320" height="180" src="https://www.youtube.com/embed/q1WfSGMWtMs?si=wjQrXqUx2SuTIR-N" frameborder="0" allowfullscreen></iframe>
+					  <p class="video-title">Cape Town, South Africa 2019</p>
+				    </div>
+				  </div>
+				  <div class="video-column">
+				    <div class="video-polaroid">
+					  <iframe width="320" height="180" src="https://www.youtube.com/embed/YlqFaFqYaoY?si=fHypku7M7I3v_cAL" frameborder="0" allowfullscreen></iframe>
+					  <p class="video-title">Havana, Cuba 2017</p>
+				    </div>
+				  </div>					
+				</div>
+			  </div>
+			  <a href="#" class="close-button" id="close-button">Close</a>
+			</div>
+	
+</div>	
+	
+	<div class="footer">
+	<ul class="footer-links">
+    <li><a href="http://acabanjr.com/">Home</a></li> |
+    <li><a href="https://www.linkedin.com/in/acabanjr/" target="_blank">LinkedIn</a></li> |
+    <li><a href="https://www.instagram.com/acabanjr" target="_blank">Instagram</a></li> |
+	<li><a href="http://gardenofbeliefs.com/" target="_blank">My Book</a></li> |
+	<li><a href="#" id="open-contactdual-overlay">Contact</a></li>
+		<div class="overlay2" id="contactdual-overlay">
+        <div class="overlay2-content-container">
+		  <div class="centered-content">
+		  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfbfOFyLk-n0re85Zp8LYcG1xYpn5MkyNGpIBdOx7Ov43naSw/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">Loading…</iframe>
+		  </div>
+		</div>
+		<a href="#" class="close-button2" id="close-contactdual-overlay2">Close</a>
+		</div>	
+	</ul>
+	&copy; 2023 Andrés Cabán Jr. All rights reserved.
+	</div>
+</div>
+
+<script>
+function openOverlay(event) {
+  event.preventDefault();
+  var overlay = document.getElementById("overlay");
+  overlay.style.display = "block";
+  document.addEventListener("keydown", closeOnEsc);
+}
+
+function closeOverlay(event) {
+  event.preventDefault();
+  var overlay = document.getElementById("overlay");
+  overlay.style.display = "none";
+  document.removeEventListener("keydown", closeOnEsc);
+}
+
+function closeOnEsc(event) {
+  if (event.key === "Escape") {
+  closeOverlay(event);
+  }
+	
+}
+
+document.getElementById("section-link-travel").addEventListener("click", openOverlay);
+document.getElementById("close-button").addEventListener("click", closeOverlay);
+</script>
+	
+<script>
+function openSectionOverlay2(event) {
+  event.preventDefault();
+  var overlay = document.getElementById("section-overlay2");
+  overlay.style.display = "block";
+  document.addEventListener("keydown", closeSectionOnEsc2);
+}
+
+function closeSectionOverlay2(event) {
+  event.preventDefault();
+  var overlay = document.getElementById("section-overlay2");
+  overlay.style.display = "none";
+  document.removeEventListener("keydown", closeSectionOnEsc2);
+}
+
+function closeSectionOnEsc2(event) {
+  if (event.key === "Escape") {
+  closeSectionOverlay2(event);
+  }
+}
+
+document.getElementById("section-link-fashion").addEventListener("click", openSectionOverlay2);
+document.getElementById("section-close-button").addEventListener("click", closeSectionOverlay2);
+</script>
+
+<script>
+function openContactOverlay(event) {
+  event.preventDefault();
+  var overlay = document.getElementById("contact-overlay");
+  overlay.style.display = "block";
+  document.addEventListener("keydown", closeContactOnEsc);
+}
+
+function closeContactOverlay(event) {
+  event.preventDefault();
+  var overlay = document.getElementById("contact-overlay");
+  overlay.style.display = "none";
+  document.removeEventListener("keydown", closeContactOnEsc);
+}
+
+function closeContactOnEsc(event) {
+  if (event.key === "Escape") {
+    closeContactOverlay(event);
+  }
+}
+
+document.getElementById("open-contact-overlay").addEventListener("click", openContactOverlay);
+document.getElementById("close-contact-overlay2").addEventListener("click", closeContactOverlay);
+</script>
+	
+<script>
+function openContactDualOverlay(event) {
+  event.preventDefault();
+  var overlay = document.getElementById("contactdual-overlay");
+  overlay.style.display = "block";
+  document.addEventListener("keydown", closeContactDualOnEsc);
+}
+
+function closeContactDualOverlay(event) {
+  event.preventDefault();
+  var overlay = document.getElementById("contactdual-overlay");
+  overlay.style.display = "none";
+  document.removeEventListener("keydown", closeContactDualOnEsc);
+}
+
+function closeContactDualOnEsc(event) {
+  if (event.key === "Escape") {
+    closeContactDualOverlay(event);
+  }
+}
+
+document.getElementById("open-contactdual-overlay").addEventListener("click", openContactDualOverlay);
+document.getElementById("close-contactdual-overlay2").addEventListener("click", closeContactDualOverlay);	
+</script>
+	
+</body>	  
+</html>
