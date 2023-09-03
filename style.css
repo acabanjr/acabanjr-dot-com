@@ -75,7 +75,28 @@ body {
   background-color: white;
   color: #85151b;
 }	
-	
+
+#section-link-interiors {
+  display: flex;
+  align-items: center;
+  justify-content: center;	
+  padding: 8px 10px;
+  background-color: #85151b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 10px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#section-link-interiors:hover {
+  background-color: white;
+  color: #85151b;
+}	
+
 /* ----- Container ----- */	
 .container {
   max-width: 980px;
@@ -298,6 +319,31 @@ body {
   color: black;
 }
 
+.overlay3 {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  max-height: 80%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.overlay3-content-container {
+  padding: 40px;
+  max-height: 100%;
+}
+
+.interiors {
+  text-align: left;
+  color: white;
+}
+
 /* ----- Embedded videos within overlay ----- */	
 .video-row {
   display: flex;
@@ -483,4 +529,102 @@ body {
   width: 100%;
   height: auto;
 }	
+}
+
+
+
+
+
+
+
+.gallery-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gallery-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px; /* Adjust the gap between rows */
+}
+
+.gallery-item {
+  width: calc(25% - 5px); /* Adjust the width of each item and spacing */
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%; /* Set the height to 100% to create square images */
+  object-fit: cover;
+  object-position: center; /* Center the image within the square */
+}
+
+
+
+
+
+
+
+.lightbox-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  overflow: auto;
+  text-align: center;
+}
+
+.lightbox-content {
+  display: inline-block;
+  max-width: 90%;
+  max-height: 90%;
+  margin: 20px auto;
+}
+
+.lightbox-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Adjust the object-fit property as needed */
+}
+
+
+
+
+
+
+
+/* Style for left arrow button */
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1001; /* Ensure the buttons are above the image */
+  background-color: rgba(0, 0, 0, 0.5); /* Black transparent circular background */
+  border-radius: 50%; /* Make it circular */
+  padding: 10px; /* Adjust the size of the circle */
+  transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+
+.prev-button {
+  left: 20px;
+}
+
+.next-button {
+  right: 20px;
+}
+
+/* Change the background color on hover for better visibility */
+.prev-button:hover,
+.next-button:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
 }
