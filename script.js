@@ -1,3 +1,5 @@
+// ! - ! - ! - Overlay for the "Travel Parallax" - ! - ! -! //
+
 function openOverlay(event) {
   event.preventDefault();
   var overlay = document.getElementById("overlay");
@@ -16,7 +18,6 @@ function closeOnEsc(event) {
   if (event.key === "Escape") {
   closeOverlay(event);
   }
-	
 }
 
 document.getElementById("section-link-travel").addEventListener("click", openOverlay);
@@ -25,7 +26,7 @@ document.getElementById("close-button").addEventListener("click", closeOverlay);
 
 
 
-
+// ! - ! - ! - Overlay for the "Fashion Parallax" - ! - ! -! //
 
 function openSectionOverlay2(event) {
   event.preventDefault();
@@ -53,7 +54,7 @@ document.getElementById("section-close-button").addEventListener("click", closeS
 
 
 
-
+// ! - ! - ! - Overlay for "Contact Profile Link" - ! - ! -! //
 
 function openContactOverlay(event) {
   event.preventDefault();
@@ -81,7 +82,7 @@ document.getElementById("close-contact-overlay2").addEventListener("click", clos
 
 
 
-
+// ! - ! - ! - Overlay for "Contact Footer Link" - ! - ! -! //
 
 function openContactDualOverlay(event) {
   event.preventDefault();
@@ -109,7 +110,7 @@ document.getElementById("close-contactdual-overlay2").addEventListener("click", 
 
 
 
-
+// ! - ! - ! - Overlay for the "Interiors Parallax" - ! - ! -! //
 
 function openSectionOverlay3(event) {
   event.preventDefault();
@@ -137,9 +138,9 @@ document.getElementById("section-close-button-interiors").addEventListener("clic
 
 
 
+// ! - ! - ! - Gallery and Lightbox within the "Interiors Overlay" - ! - ! -! //
 
-
-// Get elements
+// Query gallery items...
 const galleryItems = document.querySelectorAll('.gallery-item');
 const lightboxContainer = document.querySelector('.lightbox-container');
 const lightboxContent = document.querySelector('.lightbox-content');
@@ -147,65 +148,55 @@ const lightboxImage = document.querySelector('.lightbox-image');
 const prevButton = document.querySelector('.prev-button');
 const nextButton = document.querySelector('.next-button');
 
-let currentIndex = 0; // Track the index of the currently displayed image
+let currentIndex = 0; // Track index of currently displayed image
 
-// Function to open the lightbox with a specific image
+// Open lightbox with specific image...
 function openLightbox(imageUrl, index) {
   lightboxImage.src = imageUrl;
   lightboxContainer.style.display = 'block';
   currentIndex = index;
 }
 
-// Function to close the lightbox
+// Close lightbox...
 function closeLightbox() {
   lightboxContainer.style.display = 'none';
 }
 
-// Function to navigate to the previous image
+// Image navigation...
 function showPrevImage() {
   if (currentIndex > 0) {
     currentIndex--;
   } else {
-    // Wrap to the last image when reaching the beginning
-    currentIndex = galleryItems.length - 1;
+    currentIndex = galleryItems.length - 1; // Wrap to last image when reaching the beginning
   }
   const imageUrl = galleryItems[currentIndex].querySelector('img').src;
   openLightbox(imageUrl, currentIndex);
 }
 
-// Function to navigate to the next image
 function showNextImage() {
   if (currentIndex < galleryItems.length - 1) {
     currentIndex++;
   } else {
-    // Wrap to the first image when reaching the end
-    currentIndex = 0;
+    currentIndex = 0; // Wrap to first image when reaching the end
   }
   const imageUrl = galleryItems[currentIndex].querySelector('img').src;
   openLightbox(imageUrl, currentIndex);
 }
 
-
-// Add click event listeners to each gallery item
+// Click event listeners...
 galleryItems.forEach((item, index) => {
   item.addEventListener('click', () => {
-    // Get the clicked image's source and index
     const imageUrl = item.querySelector('img').src;
-
-    // Display the lightbox
     openLightbox(imageUrl, index);
   });
 });
 
-// Close the lightbox when clicking on the image
 lightboxContent.addEventListener('click', (e) => {
-  // Close only if the click target is the image (not the buttons)
   if (e.target === lightboxImage) {
     closeLightbox();
   }
 });
 
-// Add click event listeners to previous and next buttons
 prevButton.addEventListener('click', () => {
   showPrevImage();
 });
@@ -214,13 +205,10 @@ nextButton.addEventListener('click', () => {
   showNextImage();
 });
 
-// Add event listeners for left and right arrow key presses
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') {
-    // Handle left arrow key press
     showPrevImage();
   } else if (e.key === 'ArrowRight') {
-    // Handle right arrow key press
     showNextImage();
   }
 });
