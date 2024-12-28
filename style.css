@@ -6,10 +6,76 @@ body {
  font-family: Arial, sans-serif;
 }
 
+a {
+  font-size: 1.10rem;
+  font-weight: bold;
+  color: #85151b;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #414141;
+}
+
 .highlight-text {
   color: #85151b;
-  font-weight: bold;
+  font-weight: normal;
+  text-align: center;
 }	
+
+
+
+
+/* ----- The Garden of Beliefs ----- */
+
+.children-book-section {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  padding: 0px;
+  font-family: Arial, sans-serif;
+}
+
+.book-title,
+.book-tagline,
+.book-author {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.book-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 0px;
+}
+
+.book-image {
+  max-width: 60%;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.book-details p {
+  font-size: 1.10rem !important;
+  color: dimgrey;
+  line-height: 1.3;
+  text-align: justify;
+}
+
+.amazon-link {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.amazon-link img {
+  max-width: 100%;
+  height: auto;
+  width: 250px;
+  margin: 0 auto;
+}
 
 
 
@@ -510,7 +576,15 @@ body {
 .video-polaroid iframe {
   width: 100%;
   height: auto;
-}	
+}
+  .book-details {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .book-image {
+    max-width: 100%;
+  }		
 }
 
 
