@@ -577,7 +577,6 @@ a:hover {
 /* ----- Footer/Footer Links ----- */	
 
 .footer {
-	display: flex; /*added*/
   text-align: center;
   padding: 20px;
   background-color: #f2f2f2;
