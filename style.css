@@ -26,60 +26,6 @@ a:hover {
 
 
 
-/* ----- The Garden of Beliefs ----- */
-
-.children-book-section {
-  margin-top: 10px;
-  margin-bottom: 40px;
-  padding: 0px;
-  font-family: Arial, sans-serif;
-}
-
-.book-title,
-.book-tagline,
-.book-author {
-  text-align: left;
-  margin: 0;
-  padding: 0;
-}
-
-.book-details {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 0px;
-}
-
-.book-image {
-  max-width: 60%;
-  height: auto;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.book-details p {
-  font-size: 1.10rem !important;
-  color: dimgrey;
-  line-height: 1.3;
-  text-align: justify;
-}
-
-.amazon-link {
-  display: block;
-  margin-top: 15px;
-  text-align: center;
-}
-
-.amazon-link img {
-  max-width: 100%;
-  height: auto;
-  width: 250px;
-  margin: 0 auto;
-}
-
-
-
-
 /* ----- Section links ----- */	
 
 #section-link-travel {
@@ -255,10 +201,6 @@ a:hover {
 }
 
 .profile-link.link3 {
-  background-image: url('./image/book.png');
-}
-
-.profile-link.link4 {
   background-image: url('./image/contact.png');
 }	
 	
@@ -379,20 +321,12 @@ a:hover {
   max-height: 100%;
 }
 
-.centered-content iframe { /* ----- Center contact form in "Contact Profile Link Overlay" */
+.centered-content iframe {
   width: 625px;
   height: 725px;
 }	
 
-.close-button { /* ----- Overlay close button option */
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  text-decoration: none;
-  color: white;
-}
-
-.close-button2 { /* ----- Overlay close button option */
+.close-button2 {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -405,6 +339,103 @@ a:hover {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+
+
+
+.overlay3 { /* ----- Overlay for "Contact Footer Link" */
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  max-height: 80%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.overlay3-content-container {
+  padding: 40px;
+  max-height: 100%;
+}
+
+.centered-content iframe {
+  width: 625px;
+  height: 725px;
+}	
+
+.close-button3 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+
+
+/* ----- The Garden of Beliefs ----- */
+
+.children-book-section {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  padding: 0px;
+  font-family: Arial, sans-serif;
+}
+
+.book-title,
+.book-tagline,
+.book-author {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.book-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 0px;
+}
+
+.book-image {
+  max-width: 60%;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.book-details p {
+  font-size: 1.10rem !important;
+  color: dimgrey;
+  line-height: 1.3;
+  text-align: justify;
+}
+
+.amazon-link {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.amazon-link img {
+  max-width: 100%;
+  height: auto;
+  width: 250px;
+  margin: 0 auto;
 }
 
 
@@ -445,50 +476,6 @@ a:hover {
   font-size: 12px;
   color: #333;
 }
-
-
-
-
-/* ----- Resume design in "Contact Overlays" ----- */
-
-.resume {
-  margin-bottom: 20px;
-  color: white;
-}
-
-.section-header {
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-.job-title {
-  font-weight: bold;
- }
-
- .job-dates {
-   font-weight: normal;
-}
-
-.job-description {
-  margin-left: 20px;
- }
-
- .accomplishments {
-   margin-left: 20px;
-}
-
-.education {
-  margin-top: 40px;
-}
-
-.education-header {
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-.education-details {
-  margin-left: 20px;
-}	
 
 
 
@@ -585,89 +572,6 @@ a:hover {
   .book-image {
     max-width: 100%;
   }		
-}
-
-
-
-
-/* ----- Gallery/Lightbox in "Interiors Parallax Overlay" ----- */
-
-.gallery-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.gallery-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-
-.gallery-item {
-  width: calc(25% - 5px);
-  overflow: hidden;
-  position: relative;
-}
-
-.gallery-item img { /* ----- Square thumbnails in gallery */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center; 
-}
-
-.lightbox-container {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
-  overflow: auto;
-  text-align: center;
-}
-
-.lightbox-content {
-  display: inline-block;
-  max-width: 90%;
-  max-height: 90%;
-  margin: 20px auto;
-}
-
-.lightbox-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.prev-button,
-.next-button {
-  position: absolute;
-  top: 50%;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  z-index: 1001;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%; 
-  padding: 10px; 
-  transition: background-color 0.3s; 
-}
-
-.prev-button {
-  left: 20px;
-}
-
-.next-button {
-  right: 20px;
-}
-
-.prev-button:hover,
-.next-button:hover {
-  background-color: rgba(0, 0, 0, 0.7);
 }
 
 
