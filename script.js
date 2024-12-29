@@ -37,7 +37,6 @@ document.getElementById("close-contact-overlay2").addEventListener("click", clos
 
 
 
-
 // ! - ! - ! - Overlay for the "Travel Parallax" - ! - ! -! //
 
 function openOverlay(event) {
