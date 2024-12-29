@@ -5,6 +5,7 @@ function openContactOverlay(event) {
   var overlay = document.getElementById("contact-overlay");
   overlay.style.display = "block";
   document.addEventListener("keydown", closeContactOnEsc);
+  document.addEventListener("click", closeOverlayOnClickOutside2);
 }
 
 function closeContactOverlay(event) {
@@ -12,6 +13,7 @@ function closeContactOverlay(event) {
   var overlay = document.getElementById("contact-overlay");
   overlay.style.display = "none";
   document.removeEventListener("keydown", closeContactOnEsc);
+  document.removeEventListener("click", closeOverlayOnClickOutside2);
 }
 
 function closeContactOnEsc(event) {
@@ -20,8 +22,18 @@ function closeContactOnEsc(event) {
   }
 }
 
+function closeOverlayOnClickOutside2(event) {
+  var overlay = document.getElementById("contact-overlay");
+  var overlayContent = document.querySelector(".overlay-content-container");
+  overlay.style.display = "block";
+  if (!overlayContent.contains(event.target) && !event.target.closest("#open-contact-overlay")) {
+    closeContactOverlay(event);
+  }
+}
+
 document.getElementById("open-contact-overlay").addEventListener("click", openContactOverlay);
 document.getElementById("close-contact-overlay2").addEventListener("click", closeContactOverlay);
+
 
 
 
